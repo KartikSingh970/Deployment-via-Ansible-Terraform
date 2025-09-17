@@ -61,7 +61,7 @@ Open in browser: 🌐 http://<EC2-public-IP>/
 
 ⚠️ Notes
 
-NodeJS port 3050 is not configured in this deployment.
+NodeJS port 3050 is configured in this deployment.
 
 PEM files and Terraform state files are excluded from Git for security.
 
