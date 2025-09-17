@@ -1,0 +1,34 @@
+---
+- name: Deploy NodeJS app with Nginx
+  hosts: web
+  become: yes
+
+  tasks:
+    - name: Enable nginx1 topic in amazon-linux-extras
+      raw: sudo amazon-linux-extras enable nginx1
+
+    - name: Install Nginx using yum
+      raw: sudo yum install -y nginx
+
+    - name: Start and enable Nginx
+      raw: sudo systemctl enable nginx
+    - name: Start Nginx service
+      raw: sudo systemctl start nginx
+
+    - name: Copy index.html
+      copy:
+        src: index.html
+        dest: /usr/share/nginx/html/index.html
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Copy index.js
+      copy:
+        src: index.js
+        dest: /usr/share/nginx/html/index.js
+        owner: root
+        group: root
+        mode: '0644'
+
+
